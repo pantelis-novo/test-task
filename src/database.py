@@ -88,7 +88,7 @@ def avg_per_batch(session: orm.Session, sensor: str) -> sqla.sql.expression.CTE:
         )
         .join(
             sensor_table,
-            sensor_table.timestamp.between(BatchInfo.start_date, BatchInfo.end_date),
+            sensor_table.timestamp.between(BatchPhase.start_date, BatchPhase.end_date),
         )
         .filter(BatchPhase.batch_phase == "cultivation")
         .filter(BatchInfo.batch_id != "NaN")
