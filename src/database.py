@@ -126,24 +126,15 @@ def get_aggregated_stats_per_batch(session: orm.Session) -> pd.DataFrame:
         )
         .join(
             avg_temp2,
-            sqla.and_(
-                avg_temp1.c.batch_id == avg_temp2.c.batch_id,
-                avg_temp1.c.batch_duration == avg_temp2.c.batch_duration,
-            ),
+            avg_temp1.c.batch_id == avg_temp2.c.batch_id,
         )
         .join(
             avg_ph1,
-            sqla.and_(
-                avg_temp1.c.batch_id == avg_ph1.c.batch_id,
-                avg_temp1.c.batch_duration == avg_ph1.c.batch_duration,
-            ),
+            avg_temp1.c.batch_id == avg_ph1.c.batch_id,
         )
         .join(
             avg_ph2,
-            sqla.and_(
-                avg_temp1.c.batch_id == avg_ph2.c.batch_id,
-                avg_temp1.c.batch_duration == avg_ph2.c.batch_duration,
-            ),
+            avg_temp1.c.batch_id == avg_ph2.c.batch_id,
         )
     )
     return pd.read_sql(query.statement, query.session.bind)
