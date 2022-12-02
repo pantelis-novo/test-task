@@ -167,7 +167,7 @@ def get_batch_sensor_difference(
         )
         .join(
             sensor_table_2,
-            sensor_table_2.timestamp.between(BatchInfo.start_date, BatchInfo.end_date),
+            sensor_table_2.timestamp.between(BatchPhase.start_date, BatchPhase.end_date),
         )
         .join(
             sensor_table_1,
