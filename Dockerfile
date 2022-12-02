@@ -15,4 +15,4 @@ ENV RESULTS_DIR=/results
 
 RUN chmod +x run_scripts.sh
 
-ENTRYPOINT ["sh", "run_scripts.sh"]
+CMD ["./run_scripts.sh"]
